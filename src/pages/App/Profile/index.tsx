@@ -1,5 +1,5 @@
 export function Component() {
-  return <div>Profile</div>;
+  return <div>Welcome from Profile</div>;
 }
 
-Component.displayName = 'Profile';
+Component.displayName = "Profile";

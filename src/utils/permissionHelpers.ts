@@ -1,5 +1,11 @@
-export const isAuthorize = (role: string, expectedRole: string): boolean => {
-  if (expectedRole === "*") {
+import { Permission } from "../config/permissions";
+
+export const isAuthorized = (role: string, expectedRole: string): boolean => {
+  if (
+    !expectedRole ||
+    role === Permission.Admin ||
+    expectedRole === Permission.All
+  ) {
     return true;
   }
 
