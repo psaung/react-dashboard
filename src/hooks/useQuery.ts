@@ -1,6 +1,6 @@
-import { useMutation, useQuery } from 'react-query';
-import { defaultRequestParams, apiResolver } from '../utils/apiHelpers';
-import { useClient } from './useClient';
+import { useMutation, useQuery } from "react-query";
+import { defaultRequestParams, apiResolver } from "../utils/apiHelpers";
+import { useClient } from "./useClient";
 const baseUrl = process.env.REACT_APP_API_URL;
 
 /**
@@ -23,7 +23,7 @@ export function useListingQuery({
       client(`${baseUrl}${url}?${params}`, {
         withCredentials,
       }).then(({ data }: any) => apiResolver(data)),
-    config || {}
+    config || {},
   );
 
   return { ...response, loading: response.isLoading };
@@ -35,7 +35,7 @@ export function useListingQuery({
  */
 export function useMutateQuery({
   method,
-  header = 'json',
+  header = "json",
   withCredentials = false,
   ...options
 }: any) {
@@ -63,7 +63,7 @@ export function useMutateQuery({
     {
       onSuccess: ({ data }) => apiResolver(data),
       ...options,
-    }
+    },
   );
 }
 
@@ -85,7 +85,7 @@ export function useFetchQuery({
       client(`${path}?${params}`, { withCredentials }).then(({ data }: any) => {
         return apiResolver(data);
       }),
-    config || {}
+    config || {},
   );
 
   return { ...response, loading: response.isLoading };

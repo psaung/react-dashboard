@@ -1,5 +1,5 @@
 export function Component() {
-  return <div>App Root</div>;
+  return <div>Welcome from Dashboard</div>;
 }
 
-Component.displayName = 'AppRoot';
+Component.displayName = "AppRoot";

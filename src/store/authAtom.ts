@@ -1,15 +1,20 @@
-import { atom } from 'jotai';
-import { atomWithStorage } from 'jotai/utils';
+import { atomWithWebStorage } from "../utils/jotaiHelpers";
 
-export interface AuthStore {
-  User: string;
+export interface AuthProps {
+  user: string;
   isLoggedIn: boolean;
+  role: string;
+  token: string | null;
 }
 
-const defaultAuthStore: AuthStore = {
-  User: '',
+export const defaultAuthStore: AuthProps = {
+  user: "",
   isLoggedIn: false,
+  role: "Guest",
+  token: null,
 };
 
-export const authState = atomWithStorage<AuthStore>('auth', defaultAuthStore);
-export const isUserLoggedIn = atom((get) => get(authState).isLoggedIn);
+export const authState = atomWithWebStorage<AuthProps>(
+  "auth",
+  defaultAuthStore,
+);

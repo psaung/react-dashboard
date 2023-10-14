@@ -1,6 +1,6 @@
-# React + TypeScript + Vite
+# React Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React Dashboard starter with React18, Vite HMR and React Router V6some with ESLint rules.
 
 Currently, two official plugins are available:
 
