@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router-dom';
-import { useAtom } from 'jotai';
-import { authState } from '../../../store/authAtom';
 import { useAccess } from '../../../hooks/useAccess';
+import { useAuth } from '../../../hooks/useAuth';
 
 export default function AppLayout() {
-  const [, toggleLoggedIn] = useAtom(authState);
+  const { onLogin } = useAuth();
+
   useAccess('User');
 
   return (
@@ -12,10 +12,11 @@ export default function AppLayout() {
       <h3>App</h3>
       <button
         onClick={() =>
-          toggleLoggedIn({
-            User: 'Mg Mg',
+          onLogin({
+            user: 'Mg Mg',
             isLoggedIn: true,
             role: 'Admin',
+            token: 'Abc'
           })
         }
       >

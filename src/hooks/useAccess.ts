@@ -1,12 +1,10 @@
 import { useAtom } from "jotai";
-import { authStatusAtom } from "../store/authAtom";
+import { authState } from "../store/authAtom";
+import { useMatches } from "react-router-dom";
 
 export function useAccess(userRole: string) {
-  const [{ isLoggedIn, role }] = useAtom(authStatusAtom);
+  const [{ isLoggedIn, role }] = useAtom(authState);
+  const matches = useMatches();
 
-  console.log(role, userRole, isLoggedIn);
-
-  if (!isLoggedIn) {
-    console.log("woo skoo doo");
-  }
+  console.log(role, userRole, isLoggedIn, matches);
 }

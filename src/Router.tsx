@@ -18,8 +18,14 @@ export const router = createBrowserRouter([
         element: <AppLayout />,
         children: [
           {
+            handle: '*',
             index: true,
             lazy: () => import('./pages/App'),
+          },
+          {
+            handle: '*',
+            path: 'profile',
+            lazy: () => import('./pages/App/Profile'),
           },
         ],
       },
